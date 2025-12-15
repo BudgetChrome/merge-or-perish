@@ -1,1 +1,1 @@
-# scalda-shooter
+# merge or perish
