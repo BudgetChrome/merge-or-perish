@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=4 uid="uid://dniyrkkdwf3cb"]
+[gd_scene load_steps=146 format=4 uid="uid://dniyrkkdwf3cb"]
 
 [ext_resource type="PackedScene" uid="uid://bwc28g513sfim" path="res://Example World/Objects/World/box_1.tscn" id="2_a2qm0"]
 [ext_resource type="PackedScene" uid="uid://bo6viygofawpl" path="res://Example World/Objects/World/target.tscn" id="3_11x65"]
@@ -17,17 +17,19 @@
 [ext_resource type="Resource" uid="uid://cd8msvjysh2uv" path="res://Player_Controller/scripts/Weapon_State_Machine/Weapon_Resources/blasterM.tres" id="10_xtha2"]
 [ext_resource type="PackedScene" uid="uid://cgt2lt4ultlaq" path="res://Player_Controller/Spawnable_Objects/Clips/blaster_m_clip.tscn" id="11_7y05e"]
 [ext_resource type="PackedScene" uid="uid://br6g3dtbytwpu" path="res://Player_Controller/Spawnable_Objects/Clips/blaster_L_clip.tscn" id="11_xavrm"]
-[ext_resource type="Texture2D" uid="uid://bkppki07fuifu" path="res://Example World/Models/Textures/prototype texture/Dark/texture_01.png" id="12_7osse"]
+[ext_resource type="Texture2D" uid="uid://bx2pltv1e8hih" path="res://Example World/Models/Textures/prototype texture/Dark/texture_01.png" id="12_7osse"]
 [ext_resource type="PackedScene" uid="uid://dwgt7gwe3gfyy" path="res://Player_Controller/Spawnable_Objects/Weapons/blasterQ.tscn" id="12_x6ydo"]
 [ext_resource type="Resource" uid="uid://dgayjkjx4mckc" path="res://Player_Controller/scripts/Weapon_State_Machine/Weapon_Resources/blasterQ.tres" id="13_xqfky"]
 [ext_resource type="Shader" uid="uid://kfuretb65505" path="res://Example World/Objects/World/world.tres" id="19_cthwv"]
-[ext_resource type="Script" uid="uid://biulbl2h7rgtf" path="res://Player_Controller/scripts/Player_Character/player_character.gd" id="19_q7at6"]
-[ext_resource type="Script" uid="uid://5itoi08yqvbg" path="res://Player_Controller/scripts/Player_Character/HUD.gd" id="20_bcyq2"]
-[ext_resource type="Texture2D" uid="uid://bjh5ic6qy4jtl" path="res://Player_Controller/HUD ASSETS/crosshair001.png" id="21_21bmr"]
-[ext_resource type="Texture2D" uid="uid://uidicgaojgdi" path="res://Player_Controller/HUD ASSETS/crosshair046.png" id="22_fst20"]
+[ext_resource type="Script" uid="uid://cs0t2x0c0trej" path="res://Player_Controller/scripts/Player_Character/player_character.gd" id="19_q7at6"]
+[ext_resource type="Script" uid="uid://cxkg8qkg6u0ad" path="res://Player_Controller/scripts/Player_Character/HUD.gd" id="20_bcyq2"]
+[ext_resource type="Texture2D" uid="uid://cxwjgt45572w1" path="res://Player_Controller/HUD ASSETS/crosshair001.png" id="21_21bmr"]
+[ext_resource type="Texture2D" uid="uid://jnok85helqr8" path="res://Player_Controller/HUD ASSETS/crosshair046.png" id="22_fst20"]
 [ext_resource type="PackedScene" uid="uid://f6of04wdait0" path="res://Example World/Models/Enemy/epstein/epstein.tscn" id="23_mjfr4"]
 [ext_resource type="Script" uid="uid://dqe1spkhd1jpq" path="res://Player_Controller/scripts/Weapon_State_Machine/Weapon_State_Machine.gd" id="23_mt2ev"]
 [ext_resource type="AnimationLibrary" uid="uid://uybino34n0sj" path="res://Player_Controller/weapon_animation.res" id="24_tu1aa"]
+[ext_resource type="PackedScene" uid="uid://cv5efudoxiocd" path="res://Example World/Objects/buffs/pizza.tscn" id="29_bcyq2"]
+[ext_resource type="PackedScene" uid="uid://blhjfw8n2uopr" path="res://Example World/Objects/buffs/area_3d.tscn" id="30_21bmr"]
 
 [sub_resource type="Resource" id="Resource_t8nnn"]
 script = ExtResource("5_khw4j")
@@ -2979,12 +2981,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33112, 3.06818, 19.9151)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1989, 3.06818, 19.9151)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0029067993, -0.047571182, 0.09070969)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01391086, -0.047571182, 0.079410076)
 navigation_mesh = SubResource("NavigationMesh_qwr1n")
 
 [node name="epstein2" parent="." groups=["Target"] instance=ExtResource("23_mjfr4")]
 transform = Transform3D(-0.8745012, 0, 0.48502326, 0, 1, 0, -0.48502326, 0, -0.8745012, 7.4806895, 1.7933016, -10.559784)
 player_path = NodePath("../player")
+
+[node name="Area3D" parent="." instance=ExtResource("29_bcyq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9164982, 1.3029321, 5.840212)
+collision_mask = 2
+
+[node name="ayran" parent="." instance=ExtResource("30_21bmr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2943567, 1.6367514, 8.142927)
+collision_mask = 2
 
 [connection signal="timeout" from="player/CanvasLayer/HitSight/HitSightTimer" to="player/CanvasLayer" method="_on_hit_sight_timer_timeout"]
 [connection signal="add_signal_to_hud" from="player/Camera/LeanPivot/MainCamera/Weapons_Manager" to="player/CanvasLayer" method="_on_weapons_manager_add_signal_to_hud"]

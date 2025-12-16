@@ -88,6 +88,8 @@ func _ready():
 	health_label.text = "Health: " + str(health) + " / " + str(MaxHealth)
 
 
+func set_sprint_cooldown(time) -> void:
+	sprint_time_remaining = time
 
 func update_camera_rotation() -> void:
 	var current_rotation = get_rotation()
@@ -240,6 +242,8 @@ func _process(_delta: float) -> void:
 		subviewport_camera.global_transform = main_camera.global_transform
 		
 func _physics_process(_delta: float) -> void:
+	
+	
 	sprint_replenish(_delta)
 	lean_collision()
 	

@@ -241,7 +241,12 @@ func _on_pick_up_detection_body_entered(body: RigidBody3D):
 			if remaining == 0:
 				body.queue_free()
 			return
+	
+	#if body.item_name == "Pizza":
+		#print(123)
 		
+	print(body.name)
+	
 	if body.TYPE == "Weapon":
 		if weapon_stack.size() == max_weapons:
 				return
@@ -253,6 +258,9 @@ func _on_pick_up_detection_body_entered(body: RigidBody3D):
 			exit(weapon_slot)
 			initialize(weapon_slot)
 			body.queue_free()
+			
+	
+	
 
 func add_ammo(_weapon_slot: WeaponSlot, ammo: int)->int:
 	var weapon = _weapon_slot.weapon

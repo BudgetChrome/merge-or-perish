@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv5efudoxiocd"]
+
+[ext_resource type="Script" uid="uid://hqw8mgbcphmu" path="res://Example World/Objects/buffs/pizza.gd" id="1_ydiac"]
+[ext_resource type="PackedScene" uid="uid://db64eofr0jw3f" path="res://Example World/Objects/buffs/pizza.glb" id="1_yv7hh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yv7hh"]
+size = Vector3(1.4887085, 0.2956543, 1)
+
+[node name="Area3D" type="Area3D"]
+script = ExtResource("1_ydiac")
+
+[node name="pizza" parent="." instance=ExtResource("1_yv7hh")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020843506, 0.21960449, 0)
+shape = SubResource("BoxShape3D_yv7hh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

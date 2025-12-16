@@ -18,7 +18,8 @@ extends CharacterBody3D
 var player: Node3D
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity") as float
 var attack_timer: float = 0.0
-var dood = false
+var dood := false
+var is_hit := false
 
 func _ready() -> void:
 	player = get_node(player_path)
@@ -32,10 +33,7 @@ func _stop_movement() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if player == null:
-		return
-		
-	if dood == true:
+	if player == null or dood or is_hit:
 		return
 
 	var distance_to_player = global_position.distance_to(player.global_position)
@@ -66,7 +64,7 @@ func _physics_process(delta: float) -> void:
 			look_pos.y = global_position.y
 			skin.look_at(look_pos, Vector3.UP)
 
-			animation_player.play("Fighting Idle/mixamo_com")
+			animation_player.play("Running(1)/mixamo_com")
 		else:
 			direction = Vector3.ZERO
 
@@ -93,7 +91,19 @@ func _attack_player() -> void:
 
 
 func Hit_Successful(damage: int, _Direction: Vector3 = Vector3.ZERO, _Position: Vector3 = Vector3.ZERO):
+	if dood:
+		return
+	
 	Health -= damage
+	
+	is_hit = true
+
+	velocity = Vector3.ZERO
+	animation_player.play("Head Hit(1)/mixamo_com")
+	print("Got hit! Health:", Health)
+
+	await animation_player.animation_finished
+	is_hit = false
 	print("Got hit! Health now:", Health)
 	
 	if Health <= 0:
@@ -102,8 +112,6 @@ func Hit_Successful(damage: int, _Direction: Vector3 = Vector3.ZERO, _Position: 
 		velocity = Vector3.ZERO
 		set_physics_process(false)
 		nav_agent.set_target_position(global_position)
-
-
 
 		animation_player.play("Dying/mixamo_com")
 

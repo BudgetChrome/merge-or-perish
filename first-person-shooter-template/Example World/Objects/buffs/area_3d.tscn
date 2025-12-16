@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://blhjfw8n2uopr"]
+
+[ext_resource type="Texture2D" uid="uid://cnc308q8b72g4" path="res://Example World/Objects/buffs/ayran.jpeg" id="1_ai633"]
+[ext_resource type="Script" uid="uid://52b5t5v6swfo" path="res://Example World/Objects/buffs/area_3d.gd" id="1_jivly"]
+[ext_resource type="ArrayMesh" uid="uid://c12g6wm13lx3t" path="res://Example World/Objects/buffs/ayran.obj" id="2_jivly"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_camc1"]
+albedo_texture = ExtResource("1_ai633")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ai633"]
+
+[node name="ayran" type="Area3D"]
+script = ExtResource("1_jivly")
+
+[node name="Ayran" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_camc1")
+mesh = ExtResource("2_jivly")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ai633")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

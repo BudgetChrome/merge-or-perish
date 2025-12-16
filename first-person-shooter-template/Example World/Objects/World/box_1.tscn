@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://bwc28g513sfim"]
 
 [ext_resource type="Script" uid="uid://duxyfplnx1cou" path="res://Example World/Scripts/physic_objects/targetable_objects.gd" id="1_kuesi"]
-[ext_resource type="Texture2D" uid="uid://dxsynf14s3j6x" path="res://Example World/Models/Boxes/cardboard_box1_Box_21-256x256.png" id="1_pdymq"]
+[ext_resource type="Texture2D" uid="uid://cf0dl6o3o1wx8" path="res://Example World/Models/Boxes/cardboard_box1_Box_21-256x256.png" id="1_pdymq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gawj1"]
 resource_name = "Material"
@@ -68,3 +68,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09805, 0.725388, 0)
 visible = false
 billboard = 1
 text = " Time Hit: 1"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

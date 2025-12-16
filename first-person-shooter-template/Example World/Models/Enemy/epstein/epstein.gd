@@ -99,7 +99,7 @@ func _stop() -> void:
 
 
 func Hit_Successful(damage: int, _dir := Vector3.ZERO, _pos := Vector3.ZERO) -> void:
-	if dood or is_hit:
+	if dood:
 		return
 
 	Health -= damage
