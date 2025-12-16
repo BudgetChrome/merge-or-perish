@@ -1,12 +1,12 @@
 [gd_scene load_steps=94 format=4 uid="uid://oc13h3au02ro"]
 
-[ext_resource type="Script" path="res://Player_Controller/scripts/Player_Character/player_character.gd" id="1_h0t42"]
-[ext_resource type="Script" path="res://Player_Controller/scripts/Player_Character/HUD.gd" id="2_tvwwj"]
+[ext_resource type="Script" uid="uid://biulbl2h7rgtf" path="res://Player_Controller/scripts/Player_Character/player_character.gd" id="1_h0t42"]
+[ext_resource type="Script" uid="uid://5itoi08yqvbg" path="res://Player_Controller/scripts/Player_Character/HUD.gd" id="2_tvwwj"]
 [ext_resource type="Texture2D" uid="uid://bjh5ic6qy4jtl" path="res://Player_Controller/HUD ASSETS/crosshair001.png" id="3_7f0mw"]
 [ext_resource type="Texture2D" uid="uid://uidicgaojgdi" path="res://Player_Controller/HUD ASSETS/crosshair046.png" id="4_l32wb"]
-[ext_resource type="Script" path="res://Player_Controller/scripts/Weapon_State_Machine/Weapon_State_Machine.gd" id="5_wuueu"]
+[ext_resource type="Script" uid="uid://dqe1spkhd1jpq" path="res://Player_Controller/scripts/Weapon_State_Machine/Weapon_State_Machine.gd" id="5_wuueu"]
 [ext_resource type="Resource" uid="uid://yc1f2j7pl4vr" path="res://Player_Controller/scripts/Weapon_State_Machine/Weapon_Resources/blasterI.tres" id="6_tpjp5"]
-[ext_resource type="Script" path="res://Player_Controller/scripts/Weapon_State_Machine/WeaponSlot.gd" id="6_wj0qi"]
+[ext_resource type="Script" uid="uid://d27h73ulq18k5" path="res://Player_Controller/scripts/Weapon_State_Machine/WeaponSlot.gd" id="6_wj0qi"]
 [ext_resource type="AnimationLibrary" uid="uid://uybino34n0sj" path="res://Player_Controller/weapon_animation.res" id="13_lmhsg"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_rj3p7"]
@@ -1267,17 +1267,17 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ys4uk"]
 _data = {
-"RESET": SubResource("Animation_tvd50"),
-"blasterM_Deactive": SubResource("Animation_gqwbi"),
-"blasterM_Drop": SubResource("Animation_3ckq2"),
-"blasterM_Melee": SubResource("Animation_fjnab"),
-"blasterM_OOA": SubResource("Animation_pwqu6"),
-"blasterM_Reload": SubResource("Animation_sx31e"),
-"blasterM_Shoot": SubResource("Animation_3ky4l"),
-"blasterM_activate": SubResource("Animation_t03yb"),
-"blasterP_activate": SubResource("Animation_utruj"),
-"blasterP_deactivate": SubResource("Animation_7qiib"),
-"blasterP_strike": SubResource("Animation_w5ji1")
+&"RESET": SubResource("Animation_tvd50"),
+&"blasterM_Deactive": SubResource("Animation_gqwbi"),
+&"blasterM_Drop": SubResource("Animation_3ckq2"),
+&"blasterM_Melee": SubResource("Animation_fjnab"),
+&"blasterM_OOA": SubResource("Animation_pwqu6"),
+&"blasterM_Reload": SubResource("Animation_sx31e"),
+&"blasterM_Shoot": SubResource("Animation_3ky4l"),
+&"blasterM_activate": SubResource("Animation_t03yb"),
+&"blasterP_activate": SubResource("Animation_utruj"),
+&"blasterP_deactivate": SubResource("Animation_7qiib"),
+&"blasterP_strike": SubResource("Animation_w5ji1")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bn0g3"]
@@ -1987,15 +1987,15 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ity6x"]
 _data = {
-"RESET": SubResource("Animation_6o48i"),
-"crouch_air": SubResource("Animation_wh4u2"),
-"crouch_ground": SubResource("Animation_k4k07"),
-"crouch_reset": SubResource("Animation_6o8hu"),
-"lean_left": SubResource("Animation_v5xwa"),
-"lean_left_collision": SubResource("Animation_0c5qk"),
-"lean_reset": SubResource("Animation_5qee8"),
-"lean_right": SubResource("Animation_5n858"),
-"lean_right_collision": SubResource("Animation_2fwsm")
+&"RESET": SubResource("Animation_6o48i"),
+&"crouch_air": SubResource("Animation_wh4u2"),
+&"crouch_ground": SubResource("Animation_k4k07"),
+&"crouch_reset": SubResource("Animation_6o8hu"),
+&"lean_left": SubResource("Animation_v5xwa"),
+&"lean_left_collision": SubResource("Animation_0c5qk"),
+&"lean_reset": SubResource("Animation_5qee8"),
+&"lean_right": SubResource("Animation_5n858"),
+&"lean_right_collision": SubResource("Animation_2fwsm")
 }
 
 [sub_resource type="AnimationNodeBlend3" id="AnimationNodeBlend3_ryreg"]
@@ -2033,6 +2033,7 @@ animation = &"lean_right_collision"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_nrrb5"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5pepu"]
+nodes/output/position = Vector2(980, 260)
 nodes/Crouch_Blend/node = SubResource("AnimationNodeBlend3_ryreg")
 nodes/Crouch_Blend/position = Vector2(500, 140)
 nodes/air/node = SubResource("AnimationNodeAnimation_lnag4")
@@ -2057,10 +2058,9 @@ nodes/lean_right_collision/node = SubResource("AnimationNodeAnimation_rlexb")
 nodes/lean_right_collision/position = Vector2(40, 640)
 nodes/left_collision_blend/node = SubResource("AnimationNodeBlend2_otrul")
 nodes/left_collision_blend/position = Vector2(360, 820)
-nodes/output/position = Vector2(980, 260)
 nodes/right_collision_blend/node = SubResource("AnimationNodeBlend2_nrrb5")
 nodes/right_collision_blend/position = Vector2(394.107, 494.395)
-node_connections = [&"Crouch_Blend", 0, &"ground", &"Crouch_Blend", 1, &"crouch reset", &"Crouch_Blend", 2, &"air", &"lean", 0, &"Crouch_Blend", &"lean", 1, &"lean_blend", &"lean_blend", 0, &"right_collision_blend", &"lean_blend", 1, &"lean_reset", &"lean_blend", 2, &"left_collision_blend", &"left_collision_blend", 0, &"lean_left", &"left_collision_blend", 1, &"lean_left_collision", &"output", 0, &"lean", &"right_collision_blend", 0, &"lean_right", &"right_collision_blend", 1, &"lean_right_collision"]
+node_connections = [&"output", 0, &"lean", &"Crouch_Blend", 0, &"ground", &"Crouch_Blend", 1, &"crouch reset", &"Crouch_Blend", 2, &"air", &"lean", 0, &"Crouch_Blend", &"lean", 1, &"lean_blend", &"lean_blend", 0, &"right_collision_blend", &"lean_blend", 1, &"lean_reset", &"lean_blend", 2, &"left_collision_blend", &"left_collision_blend", 0, &"lean_left", &"left_collision_blend", 1, &"lean_left_collision", &"right_collision_blend", 0, &"lean_right", &"right_collision_blend", 1, &"lean_right_collision"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cx3sy"]
 radius = 0.45
@@ -2079,7 +2079,6 @@ left_lean_collision = NodePath("Camera/LeanRighCollision")
 sprint_timer = NodePath("SprintTimer")
 acceleration = 20.0
 coyote_timer = NodePath("CoyoteTimer")
-metadata/_edit_group_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -2129,6 +2128,16 @@ layout_mode = 2
 text = "Weapon Stack:"
 
 [node name="WeaponStack" type="Label" parent="CanvasLayer/debug_hud/HBoxContainer3"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/debug_hud"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/debug_hud/HBoxContainer4"]
+layout_mode = 2
+text = "Health:"
+
+[node name="Health" type="Label" parent="CanvasLayer/debug_hud/HBoxContainer4"]
 layout_mode = 2
 
 [node name="MainSight" type="TextureRect" parent="CanvasLayer"]
@@ -2215,7 +2224,7 @@ weapon_stack = Array[ExtResource("6_wj0qi")]([SubResource("Resource_4pcyg")])
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.54919, 0)
 
 [node name="blasterN" type="Node3D" parent="Camera/LeanPivot/MainCamera/Weapons_Manager/Weapons_Models"]
-transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0.193, 1.255, -0.643)
+transform = Transform3D(-1, 0, 2.5351817e-06, 0, 1, 0, -2.5351817e-06, 0, -1, 0.193, 1.255, -0.643)
 visible = false
 
 [node name="blasterN2" type="MeshInstance3D" parent="Camera/LeanPivot/MainCamera/Weapons_Manager/Weapons_Models/blasterN"]
@@ -2225,7 +2234,7 @@ mesh = SubResource("ArrayMesh_4dame")
 skeleton = NodePath("")
 
 [node name="blasterI" type="Node3D" parent="Camera/LeanPivot/MainCamera/Weapons_Manager/Weapons_Models"]
-transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, -0.148, 1.379, -0.398)
+transform = Transform3D(-1, 0, -2.5351817e-06, 0, 1, 0, 2.5351817e-06, 0, -1, -0.148, 1.379, -0.398)
 visible = false
 
 [node name="blasterD2" type="MeshInstance3D" parent="Camera/LeanPivot/MainCamera/Weapons_Manager/Weapons_Models/blasterI"]
@@ -2235,7 +2244,7 @@ mesh = SubResource("ArrayMesh_eo1ub")
 skeleton = NodePath("")
 
 [node name="blasterL" type="Node3D" parent="Camera/LeanPivot/MainCamera/Weapons_Manager/Weapons_Models"]
-transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0.117, 1.16, -0.512)
+transform = Transform3D(-1, 0, -2.5351817e-06, 0, 1, 0, 2.5351817e-06, 0, -1, 0.117, 1.16, -0.512)
 visible = false
 
 [node name="blasterA2" type="MeshInstance3D" parent="Camera/LeanPivot/MainCamera/Weapons_Manager/Weapons_Models/blasterL"]
@@ -2254,7 +2263,7 @@ mesh = SubResource("ArrayMesh_kn6m3")
 skeleton = NodePath("")
 
 [node name="blasterP2" type="Node3D" parent="Camera/LeanPivot/MainCamera/Weapons_Manager/Weapons_Models"]
-transform = Transform3D(-0.97237, -0.233408, -0.00407487, 0, 0.0174555, -0.999848, 0.233443, -0.972222, -0.0169732, 0.32, 1.014, -0.35)
+transform = Transform3D(-0.97236997, -0.2334076, -0.0040748655, 0, 0.01745548, -0.999848, 0.23344313, -0.9722221, -0.016973201, 0.32, 1.014, -0.35)
 visible = false
 
 [node name="blasterP" type="MeshInstance3D" parent="Camera/LeanPivot/MainCamera/Weapons_Manager/Weapons_Models/blasterP2"]
@@ -2264,12 +2273,12 @@ skeleton = NodePath("")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera/LeanPivot/MainCamera/Weapons_Manager/Weapons_Models"]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_ys4uk"),
-"Global": ExtResource("13_lmhsg")
+&"": SubResource("AnimationLibrary_ys4uk"),
+&"Global": ExtResource("13_lmhsg")
 }
 
 [node name="blasterQ2" type="Node3D" parent="Camera/LeanPivot/MainCamera/Weapons_Manager/Weapons_Models"]
-transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, 2.5351817e-06, 0, 1, 0, -2.5351817e-06, 0, -1, 0, 0, 0)
 visible = false
 
 [node name="blasterQ" type="MeshInstance3D" parent="Camera/LeanPivot/MainCamera/Weapons_Manager/Weapons_Models/blasterQ2"]
@@ -2315,7 +2324,7 @@ shape = SubResource("BoxShape3D_mvomp")
 
 [node name="CharacterAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ity6x")
+&"": SubResource("AnimationLibrary_ity6x")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

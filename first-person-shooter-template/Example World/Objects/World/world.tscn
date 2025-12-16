@@ -1,7 +1,8 @@
-[gd_scene load_steps=51 format=3 uid="uid://dniyrkkdwf3cb"]
+[gd_scene load_steps=53 format=3 uid="uid://dniyrkkdwf3cb"]
 
 [ext_resource type="PackedScene" uid="uid://bwc28g513sfim" path="res://Example World/Objects/World/box_1.tscn" id="2_a2qm0"]
 [ext_resource type="PackedScene" uid="uid://bo6viygofawpl" path="res://Example World/Objects/World/target.tscn" id="3_11x65"]
+[ext_resource type="PackedScene" uid="uid://dhtlob8wp0ru1" path="res://Example World/shit/enemy.tscn" id="3_qwr1n"]
 [ext_resource type="PackedScene" uid="uid://gtthejj2wmyj" path="res://Player_Controller/Spawnable_Objects/Weapons/blaster_n.tscn" id="4_jtbxf"]
 [ext_resource type="PackedScene" uid="uid://cvbk5bxenpxey" path="res://Player_Controller/Spawnable_Objects/Weapons/blaster_I.tscn" id="4_olwnw"]
 [ext_resource type="Resource" uid="uid://c1jg0ifn7yvve" path="res://Player_Controller/scripts/Weapon_State_Machine/Weapon_Resources/blasterN.tres" id="4_u04vv"]
@@ -186,6 +187,10 @@ uv1_triplanar = true
 albedo_texture = ExtResource("12_7osse")
 uv1_triplanar = true
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_qwr1n"]
+vertices = PackedVector3Array(-8.284643, 1.7481291, -21.3975, -8.284643, 1.7481291, 21.3525, 21.965357, 1.7481291, 21.3525, 21.965357, 1.7481291, -21.3975)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
 [node name="World" type="Node3D" groups=["World"]]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -289,6 +294,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.80966, 2.5638, -0.779098)
 
 [node name="Target30" parent="Enemy" instance=ExtResource("3_11x65")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.80966, 2.5638, -1.4965)
+
+[node name="Target32" parent="Enemy" instance=ExtResource("3_11x65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.619316, 5.1276, -2.993001)
+
+[node name="charlie kirk" parent="." instance=ExtResource("3_qwr1n")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 13.397542, 1.693671, -23.050951)
+player_path = NodePath("../player")
+
+[node name="charlie kirk2" parent="." instance=ExtResource("3_qwr1n")]
+transform = Transform3D(0.5969952, 0, -0.8022448, 0, 1, 0, 0.8022448, 0, 0.5969952, 0.48822165, 2.0657053, 0.3436947)
+player_path = NodePath("../player")
 
 [node name="Weapons" type="Node3D" parent="."]
 
@@ -397,7 +413,7 @@ weapon = SubResource("Resource_l0ryq")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.7864, 2.51904, -4.82932)
 weapon = SubResource("Resource_5dj0g")
 
-[node name="Player_Character" parent="." instance=ExtResource("10_nucft")]
+[node name="player" parent="." instance=ExtResource("10_nucft")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.9414, 2.36574, 6.10105)
 
 [node name="LevelGeometry" type="CSGCombiner3D" parent="."]
@@ -619,3 +635,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33112, 3.06818, 19.9151)
 
 [node name="box10" parent="physics_objects" instance=ExtResource("2_a2qm0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1989, 3.06818, 19.9151)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0029067993, -0.047571182, 0.09070969)
+navigation_mesh = SubResource("NavigationMesh_qwr1n")

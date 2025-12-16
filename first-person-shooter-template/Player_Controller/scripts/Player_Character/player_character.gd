@@ -11,6 +11,7 @@ var mouse_sensitivity = 0.001
 var crouched: bool = false
 var crouch_blocked: bool = false
 
+
 @export_category("Crouch Parametres")
 @export var enable_crouch: bool = true
 @export var crouch_toggle: bool = false
@@ -39,6 +40,8 @@ var sprint_on_cooldown: bool = false
 var sprint_time_remaining: float = sprint_time
 @onready var sprint_bar: Range = $CanvasLayer/SprintBar
 
+var HP = 100;
+
 const NORMAL_speed = 1
 @export_range(1.0,3.0) var sprint_speed: float = 2.0
 @export_range(0.1,1.0) var walk_speed: float = 0.5
@@ -52,6 +55,8 @@ var speed_modifier: float = NORMAL_speed
 @export var jump_distance: float = 4.0
 @export var coyote_time: float = .1
 @export var jump_buffer_time: float = .2
+
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var jump_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -71,6 +76,12 @@ func update_camera_rotation() -> void:
 	var current_rotation = get_rotation()
 	camera_rotation.x = current_rotation.y
 	camera_rotation.y = current_rotation.x
+	
+func take_damage(dmg) -> void:
+	HP = HP - dmg
+	
+	if HP <= 0:
+		get_tree().reload_current_scene()
 	
 	
 func _input(event: InputEvent) -> void:
