@@ -1,7 +1,7 @@
 [gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://kfuretb65505"]
 
-[ext_resource type="Texture2D" uid="uid://clnfpevxcym48" path="res://Example World/Models/Textures/prototype texture/Green/texture_01.png" id="1_1d3md"]
-[ext_resource type="Texture2D" uid="uid://ir78fctnwldw" path="res://Example World/Models/Textures/prototype texture/Red/texture_01.png" id="2_1nc8b"]
+[ext_resource type="Texture2D" uid="uid://clj8v3dpj1b7g" path="res://Example World/Models/Textures/prototype texture/Green/texture_01.png" id="1_1d3md"]
+[ext_resource type="Texture2D" uid="uid://cy7sn4i131sfh" path="res://Example World/Models/Textures/prototype texture/Red/texture_01.png" id="2_1nc8b"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_4v8y4"]
 texture = ExtResource("1_1d3md")
