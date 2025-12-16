@@ -3,10 +3,16 @@ extends CanvasLayer
 @onready var current_weapon_label = $debug_hud/HBoxContainer/CurrentWeapon
 @onready var current_ammo_label = $debug_hud/HBoxContainer2/CurrentAmmo
 @onready var current_weapon_stack = $debug_hud/HBoxContainer3/WeaponStack
-#@onready var health = $debug_hud/HBoxContainer4/Health
+
+@onready var health_label = $debug_hud/HBoxContainer4/Label
+
 @onready var hit_sight = $HitSight
 @onready var hit_sight_timer = $HitSight/HitSightTimer
 @onready var overLay = $Overlay
+
+func update_health(current_hp: int, max_hp: int):
+	health_label.text = str(current_hp) + " / " + str(max_hp)
+
 
 func _on_weapons_manager_update_weapon_stack(WeaponStack):
 	current_weapon_stack.text = ""

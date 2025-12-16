@@ -40,7 +40,9 @@ var sprint_on_cooldown: bool = false
 var sprint_time_remaining: float = sprint_time
 @onready var sprint_bar: Range = $CanvasLayer/SprintBar
 
-var HP = 100;
+
+@export var MaxHealth: int = 100
+var health: int
 
 const NORMAL_speed = 1
 @export_range(1.0,3.0) var sprint_speed: float = 2.0
@@ -58,6 +60,7 @@ var speed_modifier: float = NORMAL_speed
 
 
 
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var jump_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var fall_gravity: float
@@ -67,22 +70,51 @@ var _speed: float
 var jump_available: bool = true
 var jump_buffer: bool = false
 
-func _ready() -> void:
+#func _ready() -> void:
+	#update_camera_rotation()
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#calculate_movement_parameters()
+	#health = MaxHealth
+	
+
+@onready var health_label = get_node("CanvasLayer/debug_hud/HBoxContainer4/Label")
+
+
+func _ready():
 	update_camera_rotation()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	calculate_movement_parameters()
-	
+	health = MaxHealth
+	health_label.text = "Health: " + str(health) + " / " + str(MaxHealth)
+
+
+
 func update_camera_rotation() -> void:
 	var current_rotation = get_rotation()
 	camera_rotation.x = current_rotation.y
 	camera_rotation.y = current_rotation.x
 	
+
+func _die() -> void:
+	get_tree().reload_current_scene()
+	
 func take_damage(dmg) -> void:
-	HP = HP - dmg
+	health -= dmg
+	health = clamp(health, 0, MaxHealth)
+	# update_health(health, MaxHealth)
+	health_label.text = "Health: " + str(health) + " / " + str(MaxHealth)
 	
-	if HP <= 0:
-		get_tree().reload_current_scene()
+	print("HP:", health)
+	if health <= 0:
+		_die()
 	
+	
+func heal(amount: int):
+	health += amount
+	health = clamp(health, 0, MaxHealth)
+	health_label.text = "Health: " + str(health) + " / " + str(MaxHealth)
+	
+
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
