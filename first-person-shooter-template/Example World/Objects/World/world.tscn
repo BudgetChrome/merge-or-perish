@@ -21,8 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://dwgt7gwe3gfyy" path="res://Player_Controller/Spawnable_Objects/Weapons/blasterQ.tscn" id="12_x6ydo"]
 [ext_resource type="Resource" uid="uid://dgayjkjx4mckc" path="res://Player_Controller/scripts/Weapon_State_Machine/Weapon_Resources/blasterQ.tres" id="13_xqfky"]
 [ext_resource type="Shader" uid="uid://kfuretb65505" path="res://Example World/Objects/World/world.tres" id="19_cthwv"]
-[ext_resource type="Script" uid="uid://biulbl2h7rgtf" path="res://Player_Controller/scripts/Player_Character/player_character.gd" id="19_q7at6"]
-[ext_resource type="Script" uid="uid://5itoi08yqvbg" path="res://Player_Controller/scripts/Player_Character/HUD.gd" id="20_bcyq2"]
+[ext_resource type="Script" uid="uid://cs0t2x0c0trej" path="res://Player_Controller/scripts/Player_Character/player_character.gd" id="19_q7at6"]
+[ext_resource type="Script" uid="uid://cxkg8qkg6u0ad" path="res://Player_Controller/scripts/Player_Character/HUD.gd" id="20_bcyq2"]
 [ext_resource type="Texture2D" uid="uid://bjh5ic6qy4jtl" path="res://Player_Controller/HUD ASSETS/crosshair001.png" id="21_21bmr"]
 [ext_resource type="Texture2D" uid="uid://uidicgaojgdi" path="res://Player_Controller/HUD ASSETS/crosshair046.png" id="22_fst20"]
 [ext_resource type="PackedScene" uid="uid://f6of04wdait0" path="res://Example World/Models/Enemy/epstein/epstein.tscn" id="23_mjfr4"]
@@ -2476,7 +2476,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.786
 weapon = SubResource("Resource_5dj0g")
 
 [node name="player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("subviewport_camera", "main_camera", "animation_tree", "crouch_collision", "right_lean_collision", "left_lean_collision", "sprint_timer", "coyote_timer")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.9414, 2.36574, 6.10105)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.9414, 12.203541, 6.10105)
 collision_layer = 2
 floor_max_angle = 0.872665
 script = ExtResource("19_q7at6")
@@ -2849,6 +2849,26 @@ material = SubResource("StandardMaterial3D_yv2ts")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2508, 3.22879, -17.4146)
 size = Vector3(2.63867, 3.72119, 14)
 material = SubResource("StandardMaterial3D_yv2ts")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="LevelGeometry"]
+transform = Transform3D(13.7, 0, 0, 0, 1, 0, 0, 0, 1, 39.44966, 10.167396, 3.7012873)
+use_collision = true
+size = Vector3(2, 3.72119, 14)
+material = SubResource("StandardMaterial3D_yv2ts")
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="LevelGeometry"]
+transform = Transform3D(-4.37114e-08, 0, 3.97416, 0, 1, 0, -1, 0, -1.73716e-07, 35.99055, 11.225147, -1.7473898)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 0, 1.25373, 1.03499, 4.24766, 3.22178, 4.91613, 3.80578, 5, 0, 1, 0)
+depth = 2.54
+material = SubResource("StandardMaterial3D_ov6po")
+
+[node name="CSGPolygon3D4" type="CSGPolygon3D" parent="LevelGeometry"]
+transform = Transform3D(-0.0014835472, 0, -3.9741557, 0, 1, 0, 0.9999989, 0, -0.0058958535, 25.86968, 11.225147, 9.713295)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 0, 1.25373, 1.03499, 4.24766, 3.22178, 4.91613, 3.80578, 5, 0, 1, 0)
+depth = 2.54
+material = SubResource("StandardMaterial3D_ov6po")
 
 [node name="ShadowGeometry" type="CSGCombiner3D" parent="."]
 layers = 524288
