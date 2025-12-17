@@ -43,6 +43,17 @@ func _ready() -> void:
 	health_bar.value = health
 	#name_label.text = "ORC WARLORD"
 	
+	# health_bar — ссылка на ProgressBar
+	var fill_style := StyleBoxFlat.new()
+	fill_style.bg_color = Color(1, 0.0, 0.0, 1.0)  # зелёный (R,G,B)
+	health_bar.add_theme_stylebox_override("fill", fill_style)
+
+	# опционально: фон (Background)
+	var bg_style := StyleBoxFlat.new()
+	bg_style.bg_color = Color(0, 0, 0)  # чёрный
+	health_bar.add_theme_stylebox_override("background", bg_style)
+
+	
 	skin.rotation.y = deg_to_rad(180)
 
 # ================= PHYSICS =================

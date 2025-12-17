@@ -796,9 +796,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -23.5
-offset_top = -24.5
-offset_right = 232.5
-offset_bottom = 39.5
+offset_top = -30.0
+offset_right = 376.5
+offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "BRAM
@@ -808,11 +808,12 @@ vertical_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="Node3D/SubViewport/Control"]
 layout_mode = 0
-offset_left = 25.605
+offset_left = -26.895
 offset_top = 24.59
-offset_right = 29.605
-offset_bottom = 51.590004
+offset_right = 73.104996
+offset_bottom = 51.59
 max_value = 1000.0
+value = 1000.0
 
 [node name="Sprite3D" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18871927, 0)
