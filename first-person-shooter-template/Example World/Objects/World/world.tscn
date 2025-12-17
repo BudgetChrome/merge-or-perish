@@ -22,7 +22,7 @@
 [ext_resource type="Resource" uid="uid://dgayjkjx4mckc" path="res://Player_Controller/scripts/Weapon_State_Machine/Weapon_Resources/blasterQ.tres" id="13_xqfky"]
 [ext_resource type="Shader" uid="uid://kfuretb65505" path="res://Example World/Objects/World/world.tres" id="19_cthwv"]
 [ext_resource type="Script" uid="uid://cs0t2x0c0trej" path="res://Player_Controller/scripts/Player_Character/player_character.gd" id="19_q7at6"]
-[ext_resource type="Script" uid="uid://cxkg8qkg6u0ad" path="res://Player_Controller/scripts/Player_Character/HUD.gd" id="20_bcyq2"]
+[ext_resource type="Script" uid="uid://5itoi08yqvbg" path="res://Player_Controller/scripts/Player_Character/HUD.gd" id="20_bcyq2"]
 [ext_resource type="Texture2D" uid="uid://cxwjgt45572w1" path="res://Player_Controller/HUD ASSETS/crosshair001.png" id="21_21bmr"]
 [ext_resource type="Texture2D" uid="uid://jnok85helqr8" path="res://Player_Controller/HUD ASSETS/crosshair046.png" id="22_fst20"]
 [ext_resource type="PackedScene" uid="uid://f6of04wdait0" path="res://Example World/Models/Enemy/epstein/epstein.tscn" id="23_mjfr4"]
@@ -2367,7 +2367,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 13.3
 player_path = NodePath("../player")
 
 [node name="charlie kirk2" parent="." instance=ExtResource("3_qwr1n")]
-transform = Transform3D(0.5969952, 0, -0.8022448, 0, 1, 0, 0.8022448, 0, 0.5969952, 0.48822165, 2.0657053, 0.3436947)
+transform = Transform3D(0.5969952, 0, -0.8022448, 0, 1, 0, 0.8022448, 0, 0.5969952, 2.3993912, 2.2996979, 1.6057358)
 player_path = NodePath("../player")
 
 [node name="Weapons" type="Node3D" parent="."]
@@ -2981,7 +2981,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33112, 3.06818, 19.9151)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1989, 3.06818, 19.9151)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01391086, -0.047571182, 0.079410076)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20535812, 0.035232782, 0.5259621)
 navigation_mesh = SubResource("NavigationMesh_qwr1n")
 
 [node name="epstein2" parent="." groups=["Target"] instance=ExtResource("23_mjfr4")]

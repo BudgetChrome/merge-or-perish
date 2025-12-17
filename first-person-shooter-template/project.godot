@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="First Person Shooter Template"
-run/main_scene="res://Example World/Objects/World/world.tscn"
+run/main_scene="uid://b1vca8ocfksm6"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Title.png"
 
