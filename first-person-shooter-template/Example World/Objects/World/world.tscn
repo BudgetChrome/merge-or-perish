@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=4 uid="uid://dniyrkkdwf3cb"]
+[gd_scene load_steps=147 format=4 uid="uid://dniyrkkdwf3cb"]
 
 [ext_resource type="PackedScene" uid="uid://bwc28g513sfim" path="res://Example World/Objects/World/box_1.tscn" id="2_a2qm0"]
 [ext_resource type="PackedScene" uid="uid://bo6viygofawpl" path="res://Example World/Objects/World/target.tscn" id="3_11x65"]
@@ -30,6 +30,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://uybino34n0sj" path="res://Player_Controller/weapon_animation.res" id="24_tu1aa"]
 [ext_resource type="PackedScene" uid="uid://cv5efudoxiocd" path="res://Example World/Objects/buffs/pizza.tscn" id="29_bcyq2"]
 [ext_resource type="PackedScene" uid="uid://blhjfw8n2uopr" path="res://Example World/Objects/buffs/area_3d.tscn" id="30_21bmr"]
+[ext_resource type="PackedScene" uid="uid://jfodatf3qked" path="res://Example World/Models/Enemy/bram/bram.tscn" id="31_fst20"]
 
 [sub_resource type="Resource" id="Resource_t8nnn"]
 script = ExtResource("5_khw4j")
@@ -2995,6 +2996,12 @@ collision_mask = 2
 [node name="ayran" parent="." instance=ExtResource("30_21bmr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2943567, 1.6367514, 8.142927)
 collision_mask = 2
+
+[node name="CharacterBody3D" parent="." groups=["Target"] instance=ExtResource("31_fst20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.0111856, -2)
+ATTACK_DAMAGE = 15
+ATTACK_COOLDOWN = 3.0
+player_path = NodePath("../player")
 
 [connection signal="timeout" from="player/CanvasLayer/HitSight/HitSightTimer" to="player/CanvasLayer" method="_on_hit_sight_timer_timeout"]
 [connection signal="add_signal_to_hud" from="player/Camera/LeanPivot/MainCamera/Weapons_Manager" to="player/CanvasLayer" method="_on_weapons_manager_add_signal_to_hud"]
