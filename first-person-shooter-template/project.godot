@@ -15,8 +15,13 @@ run/main_scene="uid://b1vca8ocfksm6"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Title.png"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+
 [filesystem]
 
+import/blender/enabled=false
 import/fbx/enabled=false
 
 [global_group]
