@@ -13,7 +13,8 @@ config_version=5
 config/name="First Person Shooter Template"
 run/main_scene="uid://b1vca8ocfksm6"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://Title.png"
+boot_splash/image="uid://bqfus265vsu7h"
+config/icon="uid://bqfus265vsu7h"
 
 [editor_plugins]
 
