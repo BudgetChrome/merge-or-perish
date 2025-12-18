@@ -176,3 +176,5 @@ func _die() -> void:
 	$Node3D.visible = false
 
 	queue_free()
+	$"../VictoryCanvas".visible = true
+	get_tree().paused = true  

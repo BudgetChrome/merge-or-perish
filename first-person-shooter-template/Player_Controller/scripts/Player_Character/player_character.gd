@@ -45,8 +45,8 @@ var sprint_time_remaining: float = sprint_time
 var health: int
 
 const NORMAL_speed = 1
-@export_range(1.0,3.0) var sprint_speed: float = 2.0
-@export_range(0.1,1.0) var walk_speed: float = 0.5
+@export_range(1.0,3.0) var sprint_speed: float = 3.0
+@export_range(0.1,1.0) var walk_speed: float = 1.0
 var speed_modifier: float = NORMAL_speed
 
 @export_category("Jump Parameters")

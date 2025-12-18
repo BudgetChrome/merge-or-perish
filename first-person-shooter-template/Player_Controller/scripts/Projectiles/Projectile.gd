@@ -101,7 +101,7 @@ func Load_Decal(_pos,_normal):
 		var rd = Debug_Bullet.instantiate()
 		var world = get_tree().get_root()
 		world.add_child(rd)
-		rd.global_translate(_pos+(_normal*.01))
+		#rd.global_translate(_pos+(_normal*.01))
 		
 func Launch_Rigid_Body_Projectile(Collision_Data, _projectile, _origin_point):
 	var _Point = Collision_Data[1]
@@ -125,7 +125,7 @@ func _on_body_entered(body, _proj, _norm):
 		body.Hit_Successful(damage)
 		Hit_Successfull.emit()
 
-	Load_Decal(_proj.get_position(),_norm)
+	#Load_Decal(_proj.get_position(),_norm)
 	_proj.queue_free()
 		
 	Projectiles_Spawned.erase(_proj)
